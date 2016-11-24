@@ -410,6 +410,7 @@ function path.common_prefix (path1,path2)
             local cp = path1:sub(1,i-1)
             if at(path1,i-1) ~= sep then
                 cp = path.dirname(cp)
+            else cp = cp:sub(1,#cp-1)
             end
             return cp
         end

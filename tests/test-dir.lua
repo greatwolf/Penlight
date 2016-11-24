@@ -36,6 +36,13 @@ asserteq(test_samples, {
     normpath "tests/lua/mymod.lua"
 })
 
+-- Test clonetree files -----------------------------------------
+assert( dir.clonetree( normpath "tests/lua", normpath "luaclone", nil, true ) )
+assert( dir.clonetree( normpath "tests/lua", normpath "tests/luaclone", nil, true ) )
+
+assert( dir.rmtree( path.abspath( normpath "tests/luaclone" ) ) )
+assert( dir.rmtree( path.abspath( normpath "luaclone" ) ) )
+
 -- Test move files -----------------------------------------
 
 -- Create a dummy file

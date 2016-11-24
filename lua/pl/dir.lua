@@ -384,13 +384,13 @@ function dir.clonetree (path1,path2,file_fun,verbose)
         return raise 'destination is a subdirectory of the source'
     end
     local cp = path.common_prefix (path1,path2)
-    local idx = #cp
-    if idx == 0 then -- no common path, but watch out for Windows paths!
+    local idx = #cp + 1
+    if idx == 1 then -- no common path, but watch out for Windows paths!
         if path1:sub(2,2) == ':' then idx = 3 end
     end
     for root,dirs,files in dir.walk(path1) do
         local opath = path2..root:sub(idx)
-        if verbose then verbose('paths:',opath,root) end
+        if verbose then verbose('paths,cp:',opath,root,cp) end
         if not isdir(opath) then
             local ret = dir.makepath(opath)
             if not ret then append(faildirs,opath) end
