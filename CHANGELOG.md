@@ -8,6 +8,7 @@
     them all into a single string.
   - `app.parse_args` now accepts a 3rd parameter with a list of valid flags and aliasses
   - `app.script_name` returns the name of the current script (previously a private function)
+  - `pretty.debug` quickly dumps a set of values to stdout for debug purposes
 
 ### Changes
 
